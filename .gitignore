@@ -1,7 +1,5 @@
-# Ignore semua isi assets
+# Ignore all assets
 assets/*
-
-# Tetap simpan folder assets
 !assets/.gitkeep
 
 # Python
@@ -12,6 +10,10 @@ __pycache__/
 build/
 dist/
 *.spec
+
+# App data
+settings.json
+stats.json
 
 # Virtual environment
 venv/
