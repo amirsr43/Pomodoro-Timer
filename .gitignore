@@ -1,0 +1,27 @@
+# Ignore semua isi assets
+assets/*
+
+# Tetap simpan folder assets
+!assets/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.*
