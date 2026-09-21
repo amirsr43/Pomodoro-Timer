@@ -1,119 +1,172 @@
 # 🍅 Pomodoro-Timer
 
-A cute, aesthetic Pomodoro timer for your desktop, built with Python and [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter). It has animated GIFs, pastel themes, and an alarm sound you can swap for your own.
-
-<!-- Add a screenshot: put it at assets/screenshot.png, then uncomment the line below -->
-<!-- <img src="assets/screenshot.png" width="320" alt="Pomodoro Timer screenshot" /> -->
+A cute and aesthetic Pomodoro timer desktop app built with Python and [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter). It features multiple timer modes, pastel themes, desktop notifications, sounds, and daily statistics.
 
 ## ✨ Features
 
-- **Three modes**: Focus, Break, and Long Break. Switch between them with one click.
-- **Animated GIFs** for each state: idle (before start or while paused), focus, break, and long break. Use a direct link or a local file.
-- **5 themes**: 🌸 Sakura, 🍵 Matcha, 💜 Lavender, 🍑 Peach, 🌙 Midnight. Pick one from the colored dots in the header.
-- **Auto cycle**: 4 focus sessions, then a long break. Auto start for break and focus can be toggled.
-- **Custom alarm**: plays when a session ends, with your own `.wav` if you want.
-- **Desktop notifications** when it's time to rest or get back to work.
-- **Daily stats**: completed pomodoros and total focus minutes, reset every day.
-- **Remembers your settings**: durations, auto start, and theme are saved.
+* **Three modes**: Focus, Break, and Long Break.
+* **5 themes**: 🌸 Sakura, 🍵 Matcha, 💜 Lavender, 🍑 Peach, 🌙 Midnight.
+* **Auto cycle**: After 4 focus sessions, the app automatically switches to a long break.
+* **Auto start**: Automatically start the next break or focus session.
+* **Custom alarm**: Supports your own `.wav` sound.
+* **Desktop notifications** when a session ends.
+* **Daily statistics** for completed Pomodoros and total focus time.
+* **Persistent settings** for durations, auto start, and theme.
+* **GIF support** with optional local animations.
+* **Fallback emoji** when no GIF is available.
 
 ## 📦 Requirements
 
-- Windows (the alarm uses the built-in `winsound` module)
-- Python 3.8 or newer
-- `customtkinter`, `pillow`, `plyer`
+* Windows
+* Python 3.8 or newer
+* `customtkinter`
+* `pillow`
+* `plyer`
+
+> The application uses Windows' built-in `winsound` module for alarm sounds.
 
 ## 🚀 Getting Started
 
+### 1. Clone the repository
+
 ```bash
-# 1. clone the repo
 git clone https://github.com/amirsr43/Pomodoro-Timer.git
 cd Pomodoro-Timer
+```
 
-# 2. install dependencies
+### 2. Install dependencies
+
+```bash
 pip install customtkinter pillow plyer
+```
 
-# 3. run it
-python pomodoro.py
+### 3. Run the application
+
+```bash
+python main.py
 ```
 
 ## 🎮 How to Use
 
-1. Pick a mode: **Focus**, **Break**, or **Long Break**.
-2. Press **Start**. The GIF changes to match the mode and the progress bar shrinks as time runs out.
-3. **↻** resets the current timer. **⚙** opens settings.
-4. When a session ends, you get an alarm and a notification, and the next mode begins (if auto start is on).
+1. Choose a mode: **Focus**, **Break**, or **Long Break**.
+2. Press **Start** to begin the timer.
+3. Use **Pause** to temporarily stop the timer.
+4. Use **Reset** to restart the current timer.
+5. Open **⚙ Settings** to customize durations, auto start, and theme.
+6. When a session ends, an alarm and desktop notification will appear.
+7. After 4 completed focus sessions, the app switches to a long break.
 
-The four dots under the timer show your progress toward the next long break.
+The four dots below the timer show your progress toward the next long break.
 
 ## 🎨 Customization
 
-### Durations and auto start
+### Durations and Auto Start
 
-Open **⚙ Settings** to change focus, break, and long break minutes, and to toggle auto start. Defaults are 25 / 5 / 15.
+Open **⚙ Settings** to change:
+
+* Focus duration
+* Short break duration
+* Long break duration
+* Auto start break
+* Auto start focus
+* Theme
+
+Default durations:
+
+```text
+Focus:      25 minutes
+Break:       5 minutes
+Long Break: 15 minutes
+```
 
 ### GIFs
 
-At the top of `pomodoro.py`, edit `GIF_SOURCES`. Each entry can be a **direct link** to a `.gif` or a **file name** inside `assets/`:
+GIFs are optional. To use a local GIF, place it inside the `assets/` folder and update `GIF_SOURCES` in `main.py`:
 
 ```python
 GIF_SOURCES = {
-    "idle": "https://example.com/idle.gif",
-    "focus": "focus.gif",              # assets/focus.gif
-    "break": "https://example.com/break.gif",
+    "idle": "idle.gif",
+    "focus": "focus.gif",
+    "break": "break.gif",
     "long_break": "long_break.gif"
 }
 ```
 
-- Links must point straight to the image file (ending in `.gif`), not a web page. On Giphy or Tenor, right-click the GIF and choose "Copy image address".
-- Downloaded GIFs are cached in `assets/cache/`, so they only download once.
-- If a GIF is missing or fails to load, an emoji is shown instead.
-- Keep GIFs small (under about 100 frames) so they load quickly.
+If a GIF is unavailable, the application automatically displays a fallback emoji.
 
-### Alarm sound
+> GIF files are not included in this repository by default.
 
-Put a file named `alarm.wav` in `assets/`, or change `ALARM_SOUND_FILE` in `pomodoro.py`. It can be a file name or a full path:
+### Alarm Sound
 
-```python
-ALARM_SOUND_FILE = r"C:\Music\ding.wav"
+You can use a custom `.wav` sound by placing `alarm.wav` inside the `assets/` folder.
+
+```text
+assets/
+└── alarm.wav
 ```
 
-If no file is found, a default beep is used. Only `.wav` files are supported. Convert mp3 files first.
+If no custom sound is available, the application uses a default Windows beep.
 
 ### Themes
 
-Add a new entry to the `THEMES` dictionary in `pomodoro.py` and its color dot appears in the header automatically:
+The application includes five built-in themes:
 
-```python
-"Ocean": {
-    "mode": "light",
-    "bg": "#EEF7FB", "card": "#FFFFFF", "track": "#D6EAF3",
-    "text": "#2F4A5A", "muted": "#7FA3B5", "on_accent": "#FFFFFF",
-    "focus": "#4FA8D8", "break": "#7FD1B9", "long_break": "#A78BFA"
-}
+* 🌸 Sakura
+* 🍵 Matcha
+* 💜 Lavender
+* 🍑 Peach
+* 🌙 Midnight
+
+Themes can be customized by editing the `THEMES` dictionary in `main.py`.
+
+## 💾 Application Data
+
+User settings and daily statistics are automatically saved in the Windows AppData folder:
+
+```text
+%APPDATA%\pomo\
+├── settings.json
+├── stats.json
+└── cache/
 ```
+
+These files are created automatically when the application runs.
+
+They are **not stored inside the project directory or GitHub repository**.
 
 ## 🗂️ Project Structure
 
-```
+```text
 Pomodoro-Timer/
-├── main.py
 ├── assets/          # optional local assets
+├── main.py          # main application
 ├── .gitignore
 └── README.md
 ```
 
+## 🔒 Privacy
+
+The application does not require an account and does not store application settings inside the project folder.
+
+Local settings and statistics are stored on the user's own Windows computer under `%APPDATA%\pomo`.
+
 ## 📝 Notes
 
-- The app is Windows-only because of `winsound`. On macOS or Linux, replace the `play_sound` function with another audio library.
-- `settings.json`, `stats.json`, and `assets/cache/` are generated at runtime. You may want to add them to `.gitignore`.
-- Run the app from its own folder so it finds `settings.json` and `stats.json`.
+* This application is currently designed for Windows.
+* GIFs and custom alarm sounds are optional.
+* Local GIF and sound files are not included in this repository.
+* Application data such as settings and statistics is generated automatically at runtime.
 
 ## 📄 License
 
-Free to use and modify. Add a license file if you plan to share it publicly.
+This project is free to use and modify.
+
+If you plan to redistribute or publish modified versions, make sure any third-party assets you add comply with their respective licenses.
 
 ---
 
 <div align="center">
-  made with 🍅 and too many hover animations
+
+Made with 🍅 and Python
+
 </div>
