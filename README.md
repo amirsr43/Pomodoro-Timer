@@ -96,11 +96,10 @@ Add a new entry to the `THEMES` dictionary in `pomodoro.py` and its color dot ap
 
 ```
 Pomodoro-Timer/
-├── pomodoro.py        # the whole app
-├── assets/            # your GIFs and alarm.wav (optional)
-│   └── cache/         # downloaded GIFs (auto-created)
-├── settings.json      # saved settings (auto-created)
-└── stats.json         # today's stats (auto-created)
+├── main.py
+├── assets/          # optional local assets
+├── .gitignore
+└── README.md
 ```
 
 ## 📝 Notes
