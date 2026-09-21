@@ -1,6 +1,11 @@
-# Ignore all assets
+# Assets
 assets/*
 !assets/.gitkeep
+pomodoro.ico
+
+# App data
+settings.json
+stats.json
 
 # Python
 __pycache__/
@@ -10,10 +15,6 @@ __pycache__/
 build/
 dist/
 *.spec
-
-# App data
-settings.json
-stats.json
 
 # Virtual environment
 venv/
