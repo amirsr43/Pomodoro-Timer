@@ -2,8 +2,22 @@
 
 A cute, aesthetic Pomodoro timer for your desktop, built with Python and [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter). It has animated GIFs, pastel themes, and an alarm sound you can swap for your own.
 
-<!-- Add a screenshot: put it at assets/screenshot.png, then uncomment the line below -->
-<!-- <img src="assets/screenshot.png" width="320" alt="Pomodoro Timer screenshot" /> -->
+## 🖼️ Preview
+
+### Themes
+
+<table>
+  <tr>
+    <td align="center"><img src="https://github.com/user-attachments/assets/b7abf0ff-08a1-4a8c-a9e3-8d0a8b89bc72" width="160" alt="Sakura"/><br/>🌸 Sakura</td>
+    <td align="center"><img src="https://github.com/user-attachments/assets/f38f0ec0-9ca6-4c68-8224-ddb1b1d4cfcf" width="160" alt="Matcha"/><br/>🍵 Matcha</td>
+    <td align="center"><img src="https://github.com/user-attachments/assets/033ef4e7-d1b6-4297-baf6-b10909c09ec4" width="160" alt="Lavender"/><br/>💜 Lavender</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://github.com/user-attachments/assets/2b3ad9cc-5863-4daf-af1c-67d6b3f98a3d" width="160" alt="Peach"/><br/>🍑 Peach</td>
+    <td align="center"><img src="https://github.com/user-attachments/assets/2d499563-d357-4bfc-b45f-6086a689e719" width="160" alt="Midnight"/><br/>🌙 Midnight</td>
+    <td align="center"><img src="https://github.com/user-attachments/assets/11f76463-65b9-4da6-ac36-a538426097f7" width="160" alt="Settings"/><br/>⚙️ Settings</td>
+  </tr>
+</table>
 
 ## ✨ Features
 
@@ -33,7 +47,7 @@ cd Pomodoro-Timer
 pip install customtkinter pillow plyer
 
 # 3. run it
-python pomodoro.py
+python app.py
 ```
 
 ## 🎮 How to Use
@@ -53,7 +67,7 @@ Open **⚙ Settings** to change focus, break, and long break minutes, and to tog
 
 ### GIFs
 
-At the top of `pomodoro.py`, edit `GIF_SOURCES`. Each entry can be a **direct link** to a `.gif` or a **file name** inside `assets/`:
+At the top of `config.py`, edit `GIF_SOURCES`. Each entry can be a **direct link** to a `.gif` or a **file name** inside `assets/`:
 
 ```python
 GIF_SOURCES = {
@@ -71,7 +85,7 @@ GIF_SOURCES = {
 
 ### Alarm sound
 
-Put a file named `alarm.wav` in `assets/`, or change `ALARM_SOUND_FILE` in `pomodoro.py`. It can be a file name or a full path:
+Put a file named `alarm.wav` in `assets/`, or change `ALARM_SOUND_FILE` in `config.py`. It can be a file name or a full path:
 
 ```python
 ALARM_SOUND_FILE = r"C:\Music\ding.wav"
@@ -81,7 +95,7 @@ If no file is found, a default beep is used. Only `.wav` files are supported. Co
 
 ### Themes
 
-Add a new entry to the `THEMES` dictionary in `pomodoro.py` and its color dot appears in the header automatically:
+Add a new entry to the `THEMES` dictionary in `config.py` and its color dot appears in the header automatically:
 
 ```python
 "Ocean": {
@@ -96,11 +110,19 @@ Add a new entry to the `THEMES` dictionary in `pomodoro.py` and its color dot ap
 
 ```
 Pomodoro-Timer/
-├── pomodoro.py        # the whole app
-├── assets/            # your GIFs and alarm.wav (optional)
-│   └── cache/         # downloaded GIFs (auto-created)
-├── settings.json      # saved settings (auto-created)
-└── stats.json         # today's stats (auto-created)
+├── app.py                   # entry point
+├── config.py                # constants, themes, GIF sources
+├── data.py                  # load/save settings & stats
+├── gif_player.py            # animated GIF player
+├── sound.py                 # alarm sound & notifications
+├── timer.py                 # timer state & logic
+├── ui/
+│   ├── app_window.py        # all widgets + display + theme
+│   └── settings_window.py   # settings & error dialogs
+└── assets/
+    ├── alarm.wav            # optional custom alarm
+    ├── tampilan/            # theme & settings screenshots
+    └── cache/               # downloaded GIFs (auto-created)
 ```
 
 ## 📝 Notes
