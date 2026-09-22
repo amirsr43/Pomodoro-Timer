@@ -1,6 +1,5 @@
 # 🍅 Pomodoro-Timer
 
-<<<<<<< HEAD
 A cute, aesthetic Pomodoro timer for your desktop, built with Python and [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter). It has animated GIFs, pastel themes, and an alarm sound you can swap for your own.
 
 ## 🖼️ Preview
@@ -19,9 +18,9 @@ A cute, aesthetic Pomodoro timer for your desktop, built with Python and [Custom
     <td align="center"><img src="https://github.com/user-attachments/assets/11f76463-65b9-4da6-ac36-a538426097f7" width="160" alt="Settings"/><br/>⚙️ Settings</td>
   </tr>
 </table>
-=======
+
 A cute and aesthetic Pomodoro timer desktop app built with Python and [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter). It features multiple timer modes, pastel themes, desktop notifications, sounds, and daily statistics.
->>>>>>> 73017273c35708727e8ed7df461f33fe5252dac7
+
 
 ## ✨ Features
 
@@ -61,15 +60,14 @@ cd Pomodoro-Timer
 pip install customtkinter pillow plyer
 ```
 
-<<<<<<< HEAD
 # 3. run it
 python app.py
-=======
+
 ### 3. Run the application
 
 ```bash
 python main.py
->>>>>>> 73017273c35708727e8ed7df461f33fe5252dac7
+
 ```
 
 ## 🎮 How to Use
@@ -107,11 +105,10 @@ Long Break: 15 minutes
 
 ### GIFs
 
-<<<<<<< HEAD
 At the top of `config.py`, edit `GIF_SOURCES`. Each entry can be a **direct link** to a `.gif` or a **file name** inside `assets/`:
-=======
+
 GIFs are optional. To use a local GIF, place it inside the `assets/` folder and update `GIF_SOURCES` in `main.py`:
->>>>>>> 73017273c35708727e8ed7df461f33fe5252dac7
+
 
 ```python
 GIF_SOURCES = {
@@ -126,11 +123,10 @@ If a GIF is unavailable, the application automatically displays a fallback emoji
 
 > GIF files are not included in this repository by default.
 
-<<<<<<< HEAD
 Put a file named `alarm.wav` in `assets/`, or change `ALARM_SOUND_FILE` in `config.py`. It can be a file name or a full path:
-=======
+
 ### Alarm Sound
->>>>>>> 73017273c35708727e8ed7df461f33fe5252dac7
+
 
 You can use a custom `.wav` sound by placing `alarm.wav` inside the `assets/` folder.
 
@@ -143,11 +139,10 @@ If no custom sound is available, the application uses a default Windows beep.
 
 ### Themes
 
-<<<<<<< HEAD
 Add a new entry to the `THEMES` dictionary in `config.py` and its color dot appears in the header automatically:
-=======
+
 The application includes five built-in themes:
->>>>>>> 73017273c35708727e8ed7df461f33fe5252dac7
+
 
 * 🌸 Sakura
 * 🍵 Matcha
@@ -176,7 +171,6 @@ They are **not stored inside the project directory or GitHub repository**.
 
 ```text
 Pomodoro-Timer/
-<<<<<<< HEAD
 ├── app.py                   # entry point
 ├── config.py                # constants, themes, GIF sources
 ├── data.py                  # load/save settings & stats
@@ -190,12 +184,12 @@ Pomodoro-Timer/
     ├── alarm.wav            # optional custom alarm
     ├── tampilan/            # theme & settings screenshots
     └── cache/               # downloaded GIFs (auto-created)
-=======
+
 ├── assets/          # optional local assets
 ├── main.py          # main application
 ├── .gitignore
 └── README.md
->>>>>>> 73017273c35708727e8ed7df461f33fe5252dac7
+
 ```
 
 ## 🔒 Privacy
